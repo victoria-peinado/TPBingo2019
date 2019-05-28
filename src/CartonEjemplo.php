@@ -67,7 +67,7 @@ class CartonEjemplo implements CartonInterface {
    * {@inheritdoc}
    */
   public function tieneNumero(int $numero) {
-    return in_array($numero, $this->numeros_carton);
+    return in_array($numero, $this->numerosDelCarton());
   }
 
 }

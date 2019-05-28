@@ -8,7 +8,7 @@
 
 ### Escribir un informe con la siguiente información.
 
-- ¿Para que sirve el archivo `.gitignore` incluido en el repositorio?.
+- ¿Para que sirve el archivo `.gitignore` incluido en el repositorio?. ¿Cuáles son sus limitaciones?
 - ¿Para que sirve el archivo `.travis.yml`. Espeficique que hace cada linea del mismo.
 - Para que sirve el archivo `composer.json` Que diferencia tiene con `composer.lock`
 - Averigue que alternativas para composer existen en NodeJS y Ruby existen.

@@ -11,14 +11,14 @@
 - ¿Para que sirve el archivo `.gitignore` incluido en el repositorio?. ¿Cuáles son sus limitaciones?
 - ¿Para que sirve el archivo `.travis.yml`. Espeficique que hace cada linea del mismo.
 - Para que sirve el archivo `composer.json` Que diferencia tiene con `composer.lock`
-- Averigue que alternativas para composer existen en NodeJS y Ruby existen.
-- Qué funcion cumple la palabra `namespace` que aparece al principio de todos los archivos de las carpetas `src` y `tests` ¿que sucede si lo quitamos?
+- Averigüe que alternativas para composer existen en NodeJS y Ruby existen.
+- Qué función cumple la palabra `namespace` que aparece al principio de todos los archivos de las carpetas `src` y `tests` ¿que sucede si lo quitamos?
 - Investigue que significa el comentario `{@inheritdoc}` que figura en los métodos de la clase `CartonJs` y `CartonEjemplo`.
-- ¿Por que las clases del directorio tests extienden de la clase `TestCase`? ¿Qué signifca que una clase extienda a otra clase?
+- ¿Por que las clases del directorio `tests` extienden de la clase `TestCase`? ¿Qué significa que una clase extienda a otra clase?
 
 ### Código
 
-- **Importante** Por ahora trabajar con el ejemplo de numeros provisto en el repositorio. No hay que hacer un generador de bingos automáticos.
+- **Importante** Por ahora trabajar con el ejemplo de números provisto en el repositorio. No hay que hacer un generador de bingos automáticos.
 - Realizar un fork de este repositorio.
 - Conectar la ejecución de tests con travis.
 - Completar los tests de la clase `tests/VerificacionesAvanzadasCartonTest.php`

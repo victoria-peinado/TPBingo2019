@@ -2,6 +2,7 @@
 
 namespace Bingo;
 
+
 /**
  * Este es un Carton de Ejemplo.
  */

@@ -1,5 +1,6 @@
 # Trabajo Práctico Integrador - 2019
 
+[![Build Status](https://travis-ci.org/dagostinoips/TPBingo2019.svg?branch=master)](https://travis-ci.org/dagostinoips/TPBingo2019)
 
 ## Consignas
 

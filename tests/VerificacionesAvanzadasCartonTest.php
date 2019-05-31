@@ -11,7 +11,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    */
   public function testUnoANoventa() {
 	$carton = new CartonEjemplo;
-	foreach($carton->numeros as $numero){
+	foreach($carton->numerosDelCarton() as $numero){
 	$this->assertTrue($numero >= 1 && $numero <=90);
 	}
   }

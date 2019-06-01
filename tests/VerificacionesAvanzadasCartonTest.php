@@ -14,27 +14,50 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
 	foreach($carton->numerosDelCarton() as $numero){
 	$this->assertTrue($numero >= 1 && $numero <=90);
 	}
-  }
+  } /** no se que es lo que no anda***/
 
   /**
    * Verifica que cada fila de un carton tenga exactamente 5 celdas ocupadas.
    */
-  public function testCincoNumerosPorFila() {
-    $this->assertTrue(TRUE);
+  public function testCincoNumerosPorFila()
+ {
+    	$carton = new CartonEjemplo;
+	 foreach($carton->filas() as $fila)
+	 {	 $c = 0;
+	 	foreach($fila as $numero)
+		{	if($numero != 0){ c++; }		
+		}
+	 }
+	$this->assertTrue($c == 0);
   }
 
   /**
    * Verifica que para cada columna, haya al menos una celda ocupada.
    */
-  public function testColumnaNoVacia() {
-    $this->assertTrue(TRUE);
+  public function testColumnaNoVacia() 
+  {	$carton = new CartonEjemplo;
+	  foreach($carton->columnas() as $columna)
+	  {	$c = 0;
+	   	foreach($columna as $numero)
+		{	if($numero != 0){ c++; }
+		}
+	  }
+	  $this->assertTrue($c >= 1);
   }
 
   /**
    * Verifica que no haya columnas de un carton con tres celdas ocupadas.
    */
-  public function testColumnaCompleta() {
-    $this->assertTrue(TRUE);
+  public function testColumnaCompleta() 
+  {
+	  $carton = new CartonEjemplo;
+	  foreach($carton->columnas() as $columna)
+	  {	$c = 0;
+	   	foreach($columna as $numero)
+		{	if($numero != 0){ c++; }
+		}
+	  }
+	  $this->assertTrue($c < 3);
   }
 
   /**

@@ -25,7 +25,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
 	 foreach($carton->filas() as $fila)
 	 {	 $c = 0;
 	 	foreach($fila as $numero)
-		{	if($numero != 0){ c++; }		
+		{	if($numero != 0){ $c++; }		
 		}
 	 }
 	$this->assertTrue($c == 0);
@@ -39,7 +39,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
 	  foreach($carton->columnas() as $columna)
 	  {	$c = 0;
 	   	foreach($columna as $numero)
-		{	if($numero != 0){ c++; }
+		{	if($numero != 0){ $c++; }
 		}
 	  }
 	  $this->assertTrue($c >= 1);
@@ -54,7 +54,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
 	  foreach($carton->columnas() as $columna)
 	  {	$c = 0;
 	   	foreach($columna as $numero)
-		{	if($numero != 0){ c++; }
+		{	if($numero != 0){ $c++; }
 		}
 	  }
 	  $this->assertTrue($c < 3);
@@ -65,7 +65,16 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * ocupada.
    */
   public function testTresCeldasIndividuales() {
-    $this->assertTrue(TRUE);
+   	$c2 = 0;
+	  $carton = new CartonEjemplo;
+	  foreach($carton->columnas() as $columna)
+	  {	$c = 0;
+	   	foreach($columna as $numero)
+		{	if($numero != 0){ $c++; }
+		}
+	   	 if ($c == 1) { $c2++}
+	  }	
+	 $this->assertTrue($c2 == 3);
   }
 
   /**

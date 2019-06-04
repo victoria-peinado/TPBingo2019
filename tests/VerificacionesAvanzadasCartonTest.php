@@ -72,7 +72,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
 	   	foreach($columna as $numero)
 		{	if($numero != 0){ $c++; }
 		}
-	   	 if ($c == 1) { $c2++}
+	   	 if ($c == 1) { $c2++;}
 	  }	
 	 $this->assertTrue($c2 == 3);
   }

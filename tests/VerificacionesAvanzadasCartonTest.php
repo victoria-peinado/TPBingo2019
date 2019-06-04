@@ -85,7 +85,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
   public function testNumerosIncrementales() {
 	  $carton = new CartonEjemplo;
 	   $maximf = 0;
-	 foreach($carton->columna() as $columna)
+	 foreach($carton->columnas() as $columna)
 	 {	
 	  	foreach($columna as $numero)
 		{	

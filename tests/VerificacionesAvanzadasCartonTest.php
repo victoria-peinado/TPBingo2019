@@ -27,8 +27,9 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
 	 	foreach($fila as $numero)
 		{	if($numero != 0){ $c++; }		
 		}
+	  $this->assertTrue($c == 5);
 	 }
-	$this->assertTrue($c == 0);
+	
   }
 
   /**

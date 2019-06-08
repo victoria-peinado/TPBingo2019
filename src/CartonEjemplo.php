@@ -38,7 +38,7 @@ class CartonEjemplo implements CartonInterface {
     {
         foreach ($this->filas() as $fila)
         {
-          $columnas[][$i]=$this->$fila[$i];
+          $columnas[$i][]=$this->$fila[$i];
         }
     }
      return $columnas;

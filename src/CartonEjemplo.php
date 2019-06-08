@@ -32,17 +32,16 @@ class CartonEjemplo implements CartonInterface {
    * {@inheritdoc}
    */
   public function columnas() {
-    return [
-      [0,9,0],
-      [16,0,12],
-      [0,28,26],
-      [38,35,0],
-      [47,0,45],
-      [0,55,0],
-      [67,0,61],
-      [77,0,0],
-      [0,84,89],
-    ];
+    $columnas = [];
+    $columnas[] = [];
+    for($i=0;$i<9;$i++)
+    {
+        foreach ($this->filas() as $fila)
+        {
+          $columnas[][$i]=$this->$fila[$i];
+        }
+    }
+     return $columnas;
   }
 
   /**

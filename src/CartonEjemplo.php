@@ -36,9 +36,9 @@ class CartonEjemplo implements CartonInterface {
     $columnas[] = [];
     for($i=0;$i<9;$i++)
     {
-        foreach ($this->numeros_carton as $fila)
+        foreach ($this->filas() as $fila)
         {
-          $columnas[$i][]=$this->$fila[$i];
+          $columnas[$i][]=$fila[$i];
         }
     }
      return $columnas;

@@ -23,19 +23,17 @@ class CartonJs implements CartonInterface {
    * {@inheritdoc}
    */
   public function columnas() {
-    return [
-      [4,0,1],
-      [0,13,0],
-      [24,0,27],
-      [31,39,0],
-      [40,48,0],
-      [0,0,50],
-      [61,66,0],
-      [0,72,73],
-      [0,0,86],
-    ];
+    $columnas = [];
+    $columnas[] = [];
+    for($i=0;$i<9;$i++)
+    {
+        foreach ($this->filas() as $fila)
+        {
+          $columnas[$i][]=$fila[$i];
+        }
+    }
+     return $columnas;
   }
-
 
   /**
    * {@inheritdoc}

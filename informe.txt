@@ -1,4 +1,4 @@
-¿Para que sirve el archivo .gitignore incluido en el repositorio?. ¿Cuáles son sus limitaciones?
+1)¿Para que sirve el archivo .gitignore incluido en el repositorio?. ¿Cuáles son sus limitaciones?
 
 El archivo .gitignore que uno puede ubicar en su repositorio se utiliza para listar que archivos y/o directorios se deberan ignorar al realizar un commit. Tal funcionalidad es util para ignorar archivos de cache y demas, que no son necesarios para el funcionamiento de los distintos editores que se pueden utilizar.
 
@@ -9,13 +9,41 @@ De por si, el .gitignore se puede "establecer" como configuracion de 3 maneras:
 
 La limitacion que esta funcionalidad posee es que si ya se realizo commits con cierto archivo incluido, este en cuestion de ser agregado a la lista de .gitignore no sera automaticamente ignorado, sino que se tendra que remover manualmente usando el comando "$ git rm --cached FILENAME"; donde FILENAME es el nombre del archivo.
 
-¿Para que sirve el archivo .travis.yml. Espeficique que hace cada linea del mismo.
+2)¿Para que sirve el archivo .travis.yml. Espeficique que hace cada linea del mismo.
 
-Para que sirve el archivo composer.json Que diferencia tiene con composer.lock. Como funciona el concepto de psr-4 el archivo composer.json. ¿Que significa el concepto de autoload?
+3)Para que sirve el archivo composer.json Que diferencia tiene con composer.lock. Como funciona el concepto de psr-4 el archivo composer.json. ¿Que significa el concepto de autoload?
+
+composer es una herramienta para descargar y dejar documentado las dependencias de los repositorios.
+Para empezar a utilizarlo, se necesita generar un archivo composer.json donde se especifique las dependencias y las versiones de estas (La definicion de versiones de composer.json se rige por una serie de reglas llamadas version constraints). El codigo es asi:
+{
+    "require": {
+        "VENDOR/PROJECT": "VERSION.*"
+    }
+}
+Donde VENDOR es el dueño de la dependencia, PROJECT la dependencia en cuestion y VERSION la version segun las reglas de version constraint (permite especificar rango de versiones, si acepta versiones secundarias, betas, etc.)
+
+Luego, para instalar estas dependencias, se debe ejecutar el comando "composer.phar install", que tiene 2 formas de funcionar: 
+-De no existir composer.lock, utilizara la configuracion de composer.json para descargar la version mas actualizada de las dependencias, segun como se especifique. A partir de ello, se genera un composer.lock que registra la version exacta descargada.
+-De existir composer.lock, descargara las versiones exactas que defina ello.
+CONSEJO: los paquetes de dependencia se descargan, dentro del repositorio, en vendor/. Es recomendado agregar este directorio a .gitignore, para que estos paquetes no despues se encuentren en el repositorio (ya tienen sus repositorios en otras paginas).
+
+Para luego actualizar composer.lock se puede ejecutar "composer.phar update"
+
+El archivo composer.json tambien permite establecer la carga automatica de clases de archivos de codigo, tanto especificando archivos particulares como directorios donde estos se encuentran. El codigo para ello es:
+{
+    "autoload": {
+        "CARGA": {"NAMESPACE\\": "DIRECTORIO/"}
+    }
+}
+CARGA es la especificacion de carga de archivos, en el caso de nuestro proyecto es "psr-4".
+La carga automatica de archivos y codigo permite que no se tenga que especificar que las clases y metodos incluidos tengan que ser referenciadas individualmente, en los archivos donde se usan.
 
 Averigüe que alternativas para composer existen en NodeJS y Ruby existen.
 
-Qué función cumple la palabra namespace que aparece al principio de todos los archivos de las carpetas src y tests ¿que sucede si lo quitamos?
+5)Qué función cumple la palabra namespace que aparece al principio de todos los archivos de las carpetas src y tests ¿que sucede si lo quitamos?
+
+NAMESPACE permite cargar automaticamente el codigo del archivo por medio de la funcion autoload de composer.json. 
+De removerlo de los archivos, estos no se cargarian automaticamente al ejecutar el proyecto, por lo que la parte del codigo que hace referencia a estos no funcionaria y el programa fallaria.
 
 Investigue que significa el comentario {@inheritdoc} que figura en los métodos de la clase CartonJs y CartonEjemplo.
 

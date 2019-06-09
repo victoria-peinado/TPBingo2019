@@ -47,4 +47,4 @@ De removerlo de los archivos, estos no se cargarian automaticamente al ejecutar 
 
 Investigue que significa el comentario {@inheritdoc} que figura en los métodos de la clase CartonJs y CartonEjemplo.
 
-¿Por que las clases del directorio tests extienden de la clase TestCase? ¿Qué significa que una clase extienda a otra clase?
+7)¿Por que las clases del directorio tests extienden de la clase TestCase? ¿Qué significa que una clase extienda a otra clase?

@@ -1,9 +1,22 @@
 ¿Para que sirve el archivo .gitignore incluido en el repositorio?. ¿Cuáles son sus limitaciones?
-Sirve para especificar los archivos que queremos que Git ignore. 
-La limitacion es que si ya tracke un archivo lo tengo que des-trackear para poder ignorarlo.
+
+El archivo .gitignore que uno puede ubicar en su repositorio se utiliza para listar que archivos y/o directorios se deberan ignorar al realizar un commit. Tal funcionalidad es util para ignorar archivos de cache y demas, que no son necesarios para el funcionamiento de los distintos editores que se pueden utilizar.
+
+De por si, el .gitignore se puede "establecer" como configuracion de 3 maneras:
+-Como configuracion del repositorio online, en el directorio principal del mismo; en cuyo caso, este sera agegado al repositorio online de github y los demas colaboradores tendran el archivo agregado a sus repositorios personales tras actualizarlos.
+-Como configuracion exclusiva del repositorio local, yendo a ".git/info" del directorio del repositorio y usando el archivo "exclude" para configurar
+-Como configuracion global exclusiva del github local, ejecutando el comando "$ git config --global core.excludesfile ~/.gitignore_global" y utilizando ese archivo para configurar
+
+La limitacion que esta funcionalidad posee es que si ya se realizo commits con cierto archivo incluido, este en cuestion de ser agregado a la lista de .gitignore no sera automaticamente ignorado, sino que se tendra que remover manualmente usando el comando "$ git rm --cached FILENAME"; donde FILENAME es el nombre del archivo.
+
 ¿Para que sirve el archivo .travis.yml. Espeficique que hace cada linea del mismo.
+
 Para que sirve el archivo composer.json Que diferencia tiene con composer.lock. Como funciona el concepto de psr-4 el archivo composer.json. ¿Que significa el concepto de autoload?
+
 Averigüe que alternativas para composer existen en NodeJS y Ruby existen.
+
 Qué función cumple la palabra namespace que aparece al principio de todos los archivos de las carpetas src y tests ¿que sucede si lo quitamos?
+
 Investigue que significa el comentario {@inheritdoc} que figura en los métodos de la clase CartonJs y CartonEjemplo.
+
 ¿Por que las clases del directorio tests extienden de la clase TestCase? ¿Qué significa que una clase extienda a otra clase?

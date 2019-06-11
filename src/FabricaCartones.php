@@ -26,12 +26,12 @@ protected function columnas($carton){
 }
   protected function cartonEsValido($carton) {
     if ($this->validarUnoANoventa($carton) &&
-      $this->validarCincoNumerosPorFila($carton) &&
+      /*$this->validarCincoNumerosPorFila($carton) &&
       $this->validarColumnaNoVacia($carton) &&
       $this->validarColumnaCompleta($carton) &&
       $this->validarTresCeldasIndividuales($carton) &&
       $this->validarNumerosIncrementales($carton) &&
-      $this->validarFilasConVaciosUniformes($carton)
+      $this->validarFilasConVaciosUniformes($carton)*/
     ) {
       return TRUE;
     }

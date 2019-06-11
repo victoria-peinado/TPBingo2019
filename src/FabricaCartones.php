@@ -42,12 +42,12 @@ protected function columnas($carton){
 		foreach($fila as $number){
 			if($numero >= 1 && $numero <=90){
 				$bool=TRUE;
+			}
+			else{
+				$bool=FALSE;
+				return $bool;
+			}
 		}
-	}
-	else{
-		$bool=FALSE;
-		return $bool;
-	}
 	}
 	return $bool;
   }

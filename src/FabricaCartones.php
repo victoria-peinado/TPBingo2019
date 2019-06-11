@@ -41,10 +41,10 @@ protected function columnas($carton){
 	foreach($carton as $fila){
 		foreach($fila as $numero){
 			if($numero >= 1 && $numero <=90){
-				$bool=TRUE;
+				$bool=1;
 			}
 			else{
-				$bool=FALSE;
+				$bool=0;
 				return $bool;
 			}
 		}

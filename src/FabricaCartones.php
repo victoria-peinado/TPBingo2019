@@ -24,61 +24,107 @@ class FabricaCartones {
     }
     return FALSE;
   }
-  
-	/**
-	* @param $carton
-	*
-	* @dataProvider cartonProvider
-	*/
   protected function validarUnoANoventa($carton) {
+	foreach($carton->numerosDelCarton() as $numero){
+	if($numero >= 1 && $numero <=90){
+		$bool=TRUE;
+	}
+	else{
+		$bool=FALSE;
+		return $bool;
+	}
+	}
+	return $bool;
   }
-  
-	/**
-	* @param $carton
-	*
-	* @dataProvider cartonProvider
-	*/
   protected function validarCincoNumerosPorFila($carton) {
+	 foreach($carton->filas() as $fila)
+	 {	 $c = 0;
+	 	foreach($fila as $numero)
+		{	if($numero != 0){ $c++; }		
+		}
+	  if($c == 5){
+		return TRUE;
+	  }
+	  else{
+		return FALSE;
+	  }
+	 }
   }
-  
-	/**
-	* @param $carton
-	*
-	* @dataProvider cartonProvider
-	*/
   protected function validarColumnaNoVacia($carton) {
+	  foreach($carton->columnas() as $columna)
+	  {	$c = 0;
+	   	foreach($columna as $numero)
+		{	if($numero != 0){ $c++; }
+		}
+	  }
+	  if($c >= 1){
+	  	return TRUE;
+	  }
+	  else{
+	  	return FALSE;
+	  }
   }
-  
-	/**
-	* @param $carton
-	*
-	* @dataProvider cartonProvider
-	*/
   protected function validarColumnaCompleta($carton) {
+	  foreach($carton->columnas() as $columna)
+	  {	$c = 0;
+	   	foreach($columna as $numero)
+		{	if($numero != 0){ $c++; }
+		}
+	  }
+	  if($c < 3){
+	  	return TRUE;
+	  }
+	  else{
+	  	return FALSE;
+	  }
   }
-  
-	/**
-	* @param $carton
-	*
-	* @dataProvider cartonProvider
-	*/
   protected function validarTresCeldasIndividuales($carton) {
+   	$c2 = 0;
+	  foreach($carton->columnas() as $columna)
+	  {	$c = 0;
+	   	foreach($columna as $numero)
+		{	if($numero != 0){ $c++; }
+		}
+	   	 if ($c == 1) { $c2++;}
+	  }	
+	  if($c < 3){
+	  	return TRUE;
+	  }
+	  else{
+	  	return FALSE;
+	  }
   }
-  
-	/**
-	* @param $carton
-	*
-	* @dataProvider cartonProvider
-	*/
   protected function validarNumerosIncrementales($carton) {
+	  $lastMax = 0;
+	 foreach($carton->columnas() as $columna)
+	 {	
+		$presentMin= min(array_filter($columna));
+		if($presentMin > $lastMax){
+			$bool=TRUE;
+		}
+		else{
+			return FALSE;
+		}
+		$lastMax = max($columna);
+	 }
+	 return $bool;
   }
-  
-	/**
-	* @param $carton
-	*
-	* @dataProvider cartonProvider
-	*/
   protected function validarFilasConVaciosUniformes($carton) {
+	 foreach($carton->filas() as $fila)
+	 {	 $c = 0;
+	 	foreach($fila as $numero)
+		{	if($numero == 0){ $c++; }
+		 	else {
+				$cmax=$c;
+				$c = 0;
+			}
+		}
+	  if($cmax < 3){
+	  	return TRUE;
+	  }
+	  else{
+	  	return FALSE;
+	  }
   }
   public function intentoCarton() {
     $contador = 0;

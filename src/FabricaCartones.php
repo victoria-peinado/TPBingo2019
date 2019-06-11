@@ -119,12 +119,13 @@ class FabricaCartones {
 				$c = 0;
 			}
 		}
-	  if($cmax < 3){
-	  	return TRUE;
-	  }
-	  else{
-	  	return FALSE;
-	  }
+		  if($cmax < 3){
+			return TRUE;
+		  }
+		  else{
+			return FALSE;
+		  }
+	 }
   }
   public function intentoCarton() {
     $contador = 0;

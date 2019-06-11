@@ -11,6 +11,19 @@ class FabricaCartones {
 			$this->generarCarton();
 		}
   }
+
+protected function columnas($carton){
+    $columnas = [];
+    $columnas[] = [];
+    for($i=0;$i<9;$i++)
+    {
+        foreach ($carton as $fila)
+        {
+          $columnas[$i][]=$fila[$i];
+        }
+    }
+     return $columnas;
+}
   protected function cartonEsValido($carton) {
     if ($this->validarUnoANoventa($carton) &&
       $this->validarCincoNumerosPorFila($carton) &&
@@ -25,7 +38,7 @@ class FabricaCartones {
     return FALSE;
   }
   protected function validarUnoANoventa($carton) {
-	foreach($carton->numerosDelCarton() as $numero){
+	foreach($carton as $numero){
 	if($numero >= 1 && $numero <=90){
 		$bool=TRUE;
 	}
@@ -37,7 +50,7 @@ class FabricaCartones {
 	return $bool;
   }
   protected function validarCincoNumerosPorFila($carton) {
-	 foreach($carton->filas() as $fila)
+	 foreach($carton as $fila)
 	 {	 $c = 0;
 	 	foreach($fila as $numero)
 		{	if($numero != 0){ $c++; }		
@@ -51,7 +64,8 @@ class FabricaCartones {
 	 }
   }
   protected function validarColumnaNoVacia($carton) {
-	  foreach($carton->columnas() as $columna)
+	  $carton2=columnas($carton);
+	  foreach($carton2 as $columna)
 	  {	$c = 0;
 	   	foreach($columna as $numero)
 		{	if($numero != 0){ $c++; }
@@ -65,7 +79,8 @@ class FabricaCartones {
 	  }
   }
   protected function validarColumnaCompleta($carton) {
-	  foreach($carton->columnas() as $columna)
+	  $carton2=columnas($carton);
+	  foreach($carton2 as $columna)
 	  {	$c = 0;
 	   	foreach($columna as $numero)
 		{	if($numero != 0){ $c++; }
@@ -80,7 +95,8 @@ class FabricaCartones {
   }
   protected function validarTresCeldasIndividuales($carton) {
    	$c2 = 0;
-	  foreach($carton->columnas() as $columna)
+	  $carton2=columnas($carton);
+	  foreach($carton2 as $columna)
 	  {	$c = 0;
 	   	foreach($columna as $numero)
 		{	if($numero != 0){ $c++; }
@@ -95,8 +111,9 @@ class FabricaCartones {
 	  }
   }
   protected function validarNumerosIncrementales($carton) {
-	  $lastMax = 0;
-	 foreach($carton->columnas() as $columna)
+	$lastMax = 0;
+	  $carton2=columnas($carton);
+	  foreach($carton2 as $columna)
 	 {	
 		$presentMin= min(array_filter($columna));
 		if($presentMin > $lastMax){
@@ -110,7 +127,7 @@ class FabricaCartones {
 	 return $bool;
   }
   protected function validarFilasConVaciosUniformes($carton) {
-	 foreach($carton->filas() as $fila)
+	 foreach($carton as $fila)
 	 {	 $c = 0;
 	 	foreach($fila as $numero)
 		{	if($numero == 0){ $c++; }

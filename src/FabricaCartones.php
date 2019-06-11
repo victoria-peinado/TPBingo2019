@@ -51,7 +51,7 @@ protected function columnas($carton){
 	}
 	return $bool;
   }
-  protected function validarCincoNumerosPorFila($carton) {
+  protected function validarCincoNumerosPorFila(array $carton) {
 	 foreach($carton as $fila)
 	 {	 $c = 0;
 	 	foreach($fila as $numero)

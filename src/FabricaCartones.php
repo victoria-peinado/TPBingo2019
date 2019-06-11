@@ -7,6 +7,9 @@ class FabricaCartones {
     if ($this->cartonEsValido($carton)) {
       return $carton;
     }
+		else{
+			$this->generarCarton();
+		}
   }
   protected function cartonEsValido($carton) {
     if (validarUnoANoventa($carton) &&
@@ -152,8 +155,8 @@ class Carton implements CartonInterface {
   /**
    * {@inheritdoc}
    */
-  public function __construct() {
-    $this->numeros_carton=FabricaCartones->generarCarton();
+  public function __construct(array $cartonAleatorio) {
+    $this->numeros_carton=$cartonAleatorio;
   }
   /**
    * {@inheritdoc}

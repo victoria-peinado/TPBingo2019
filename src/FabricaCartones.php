@@ -38,9 +38,11 @@ protected function columnas($carton){
     return FALSE;
   }
   protected function validarUnoANoventa($carton) {
-	foreach($carton as $numero){
-	if($numero >= 1 && $numero <=90){
-		$bool=TRUE;
+	foreach($carton as $fila){
+		foreach($fila as $number){
+			if($numero >= 1 && $numero <=90){
+				$bool=TRUE;
+		}
 	}
 	else{
 		$bool=FALSE;

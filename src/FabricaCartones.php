@@ -21,18 +21,60 @@ class FabricaCartones {
     }
     return FALSE;
   }
+  
+	/**
+	* @param $carton
+	*
+	* @dataProvider cartonProvider
+	*/
   protected function validarUnoANoventa($carton) {
   }
+  
+	/**
+	* @param $carton
+	*
+	* @dataProvider cartonProvider
+	*/
   protected function validarCincoNumerosPorFila($carton) {
   }
+  
+	/**
+	* @param $carton
+	*
+	* @dataProvider cartonProvider
+	*/
   protected function validarColumnaNoVacia($carton) {
   }
+  
+	/**
+	* @param $carton
+	*
+	* @dataProvider cartonProvider
+	*/
   protected function validarColumnaCompleta($carton) {
   }
+  
+	/**
+	* @param $carton
+	*
+	* @dataProvider cartonProvider
+	*/
   protected function validarTresCeldasIndividuales($carton) {
   }
+  
+	/**
+	* @param $carton
+	*
+	* @dataProvider cartonProvider
+	*/
   protected function validarNumerosIncrementales($carton) {
   }
+  
+	/**
+	* @param $carton
+	*
+	* @dataProvider cartonProvider
+	*/
   protected function validarFilasConVaciosUniformes($carton) {
   }
   public function intentoCarton() {
@@ -99,5 +141,59 @@ class FabricaCartones {
       }
     }
     return $carton;
+  }
+}
+
+
+
+
+class Carton implements CartonInterface {
+  protected $numeros_carton = [];
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct() {
+    $this->numeros_carton=FabricaCartones->generarCarton();
+  }
+  /**
+   * {@inheritdoc}
+   */
+  public function filas() {
+    return $this->numeros_carton ;
+  }
+  /**
+   * {@inheritdoc}
+   */
+  public function columnas() {
+    $columnas = [];
+    $columnas[] = [];
+    for($i=0;$i<9;$i++)
+    {
+        foreach ($this->filas() as $fila)
+        {
+          $columnas[$i][]=$fila[$i];
+        }
+    }
+     return $columnas;
+  }
+  /**
+   * {@inheritdoc}
+   */
+  public function numerosDelCarton() {
+    $numeros = [];
+    foreach ($this->filas() as $fila) {
+      foreach ($fila as $celda) {
+        if ($celda != 0) {
+          $numeros[] = $celda;
+        }
+      }
+    }
+    return $numeros;
+  }
+  /**
+   * {@inheritdoc}
+   */
+  public function tieneNumero(int $numero) {
+    return in_array($numero, $this->numerosDelCarton());
   }
 }

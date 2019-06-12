@@ -25,8 +25,11 @@ class FabricaCartones {
     return FALSE;
   }
   protected function validarUnoANoventa($carton) {
-	 foreach($carton->numerosDelCarton() as $numero){
-	if($numero < 1 || $numero >90) {return FALSE;}
+	foreach ($carton as $fila) {
+		foreach (array_filter($fila) as $celda)
+		{
+			if($numero < 1 || $numero >90) {return FALSE;}
+		}
 	}
 	
 	return TRUE;

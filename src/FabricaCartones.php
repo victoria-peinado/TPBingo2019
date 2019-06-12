@@ -4,10 +4,24 @@ class FabricaCartones {
   public function generarCarton() {
     // Algo de pseudo-código para ayudar con la evaluacion.
     $carton =$this->intentoCarton();
-    While( ($this->cartonEsValido($carton)) == FALSE) {
-    	$carton=$this->intentoCarton();
+    if ($this->cartonEsValido($carton)) {
+      return $carton;
     }
-	  return $carton;
+		else{
+			((new FabricaCartones)->generarCarton());
+		}
+  }
+  public function columnas2Filas($carton) {
+    $filas = [];
+    $filas[] = [];
+    for($i=0;$i<3;$i++)
+    {
+        foreach ($carton as $columna)
+        {
+          $filas[$i][]=$columna[$i];
+        }
+    }
+     return $filas;
   }
 
 

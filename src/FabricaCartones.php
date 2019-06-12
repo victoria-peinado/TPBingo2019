@@ -28,7 +28,7 @@ class FabricaCartones {
 	
 	return TRUE;
   }
-  protected function validarCincoNumerosPorFila(array $carton) {
+  protected function validarCincoNumerosPorFila($carton) {
 	
 	return TRUE;
   }

@@ -25,13 +25,13 @@ class FabricaCartones {
     return FALSE;
   }
   protected function validarUnoANoventa($carton) {
-	/*foreach ($carton as $fila) {
-		foreach (array_filter($fila) as $celda)
+	foreach ($carton as $fila) {
+		foreach (array_filter($fila) as $numero)
 		{
 			if($numero < 1 || $numero >90) {return FALSE;}
 		}
 	}
-	*/
+	
 	return TRUE;
   }
   protected function validarCincoNumerosPorFila($carton) {

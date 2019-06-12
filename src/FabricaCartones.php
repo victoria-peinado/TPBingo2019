@@ -5,7 +5,7 @@ class FabricaCartones {
     // Algo de pseudo-código para ayudar con la evaluacion.
     $carton =$this->intentoCarton();
     if ($this->cartonEsValido($carton)) {
-      return $carton;
+      return $this->columnas2Filas($carton);
     }
 		else{
 			((new FabricaCartones)->generarCarton());

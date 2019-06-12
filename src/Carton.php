@@ -1,5 +1,4 @@
 <?php
-
 namespace Bingo;
 class Carton implements CartonInterface {
   protected $numeros_carton = [];

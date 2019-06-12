@@ -9,19 +9,7 @@ class FabricaCartones {
     }
   return $carton;
   }
-  public function columnas2Filas($carton) {
-    $filas = [];
-    $filas[] = [];
-    for($i=0;$i<3;$i++)
-    {
-        foreach ($carton as $columna)
-        {
-          $filas[$i][]=$columna[$i];
-        }
-    }
-     return $filas;
-  }
-
+ 
 
   protected function cartonEsValido($carton) {
     if ($this->validarUnoANoventa($carton)/* &&

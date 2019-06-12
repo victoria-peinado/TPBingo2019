@@ -39,7 +39,8 @@ class FabricaCartones {
     return FALSE;
   }
   protected function validarUnoANoventa($carton) {
-	foreach($carton as $fila){
+	$carton2=$this->columnas2Filas$carton()
+	foreach($carton2 as $fila){
 		foreach($fila as $numero){
 			if($numero >= 1 && $numero <=90){
 				$bool=1;
@@ -53,7 +54,8 @@ class FabricaCartones {
 	return $bool;
   }
   protected function validarCincoNumerosPorFila(array $carton) {
-	 foreach($carton as $fila)
+	$carton2=$this->columnas2Filas$carton()
+	 foreach($carton2 as $fila)
 	 {	 $c = 0;
 	 	foreach($fila as $numero)
 		{	if($numero != 0){ $c++; }		
@@ -67,8 +69,7 @@ class FabricaCartones {
 	 }
   }
   protected function validarColumnaNoVacia($carton) {
-	  $carton2=columnas($carton);
-	  foreach($carton2 as $columna)
+	  foreach($carton as $columna)
 	  {	$c = 0;
 	   	foreach($columna as $numero)
 		{	if($numero != 0){ $c++; }
@@ -82,8 +83,7 @@ class FabricaCartones {
 	  }
   }
   protected function validarColumnaCompleta($carton) {
-	  $carton2=columnas($carton);
-	  foreach($carton2 as $columna)
+	  foreach($carton as $columna)
 	  {	$c = 0;
 	   	foreach($columna as $numero)
 		{	if($numero != 0){ $c++; }
@@ -98,8 +98,7 @@ class FabricaCartones {
   }
   protected function validarTresCeldasIndividuales($carton) {
    	$c2 = 0;
-	  $carton2=columnas($carton);
-	  foreach($carton2 as $columna)
+	  foreach($carton as $columna)
 	  {	$c = 0;
 	   	foreach($columna as $numero)
 		{	if($numero != 0){ $c++; }
@@ -115,8 +114,7 @@ class FabricaCartones {
   }
   protected function validarNumerosIncrementales($carton) {
 	$lastMax = 0;
-	  $carton2=columnas($carton);
-	  foreach($carton2 as $columna)
+	  foreach($carton as $columna)
 	 {	
 		$presentMin= min(array_filter($columna));
 		if($presentMin > $lastMax){
@@ -130,7 +128,8 @@ class FabricaCartones {
 	 return $bool;
   }
   protected function validarFilasConVaciosUniformes($carton) {
-	 foreach($carton as $fila)
+	$carton2=$this->columnas2Filas$carton()
+	 foreach($carton2 as $fila)
 	 {	 $c = 0;
 	 	foreach($fila as $numero)
 		{	if($numero == 0){ $c++; }
